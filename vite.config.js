@@ -8,6 +8,5 @@ export default defineConfig({
     alias: {
       src: "/src",
     },
-    port:"5002"
   },
 })

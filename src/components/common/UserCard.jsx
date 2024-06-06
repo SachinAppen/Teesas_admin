@@ -1,12 +1,15 @@
 import React from 'react'
 import Group1000001600 from "../../assets/images/Group1000001600.png";
-const UserCard = ({label,backgroundcolor,width,height,value,value2,img,imglogo,imgbg}) => {
+const UserCard = ({label,backgroundcolor,width,height,value,value2,img,imglogo,imgbg,img2 }) => {
   return (
     <div className={` py-[15px] lg:mt-0 mt-[10px] px-[15px] rounded-xl flex gap-[8px] flex-col ${width} ${height} ${backgroundcolor}`}>  
     <div className='w-[32px] h-[32px] rounded-lg'>
     <div className=' relative'>
      <img src={imglogo} className='absolute left-[7px] top-[8px]' />
      <img src={imgbg}/>
+     </div>
+     <img src={img2}/>
+     <div>
      </div>
     </div>
     <div>

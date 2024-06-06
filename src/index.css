@@ -176,3 +176,7 @@ textarea::placeholder {
 .toggle-btn.toggled .thumb {
   left: 25px; 
 }
+.boxShadow{
+  box-shadow: 0px 4.27px 25.6px 0.85px #5D44F80A;
+
+}

@@ -237,7 +237,7 @@ const SignInList = ({ isOpen }) => {
                 backgroundcolor="bg-[#F2F2F2]"
                 textcolor="text-[#000000]"
                 imagePosition="right"
-              />{" "}
+              />
             </div>
           </div>
           <div>

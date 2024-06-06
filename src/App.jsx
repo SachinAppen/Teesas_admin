@@ -41,6 +41,10 @@ import AdminUserDetails from './pages/admin/AdminUser/AdminUserDetails';
 import AddAdminUser from './pages/admin/AdminUser/AddAdminUser';
 import Profile from './pages/user/Profile/Profile';
 import EditUser from './pages/user/EditUser';
+import DataAnalytics from './pages/user/DataAnalytics/DataAnalytics';
+import ViewAnalytics from './pages/user/DataAnalytics/ViewAnalytics';
+import ConversionRates from './pages/user/DataAnalytics/CoversionRates';
+
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -97,7 +101,10 @@ function App() {
         <Route path='/AdminUserDetails' element={<AdminUserDetails isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/AddAdminUser' element={<AddAdminUser isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/Profile' element={<Profile isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
-
+        <Route path='/DataAnalytics' element={ <DataAnalytics isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/DataAnalytics' element={ <DataAnalytics isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/ViewAnalytics' element={ <ViewAnalytics isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/ConversionRates' element={ <ConversionRates isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
       </Routes>
     </>
   );

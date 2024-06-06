@@ -8,6 +8,7 @@ import Headcomponent from "../../components/common/Headcomponent";
 import arrow_upward from '../../assets/images/arrow_upward.png'
 import { useDispatch } from "react-redux";
 import { userAsync } from "../../apis/slices/authSlice";
+import notes from "../../assets/images/Group1000001600.png";
 const Home = ({ isOpen, toggleSidebar }) => {
   const [selectedMonth, setSelectedMonth] = useState("August");
   const [data, setdata] = useState([]);
@@ -51,6 +52,7 @@ const Home = ({ isOpen, toggleSidebar }) => {
             value={data.total_users}
             value2="1.10% Since yesterday"
             img={arrow_upward}
+            img2={notes}
           />
           <div className="  lg:h-[214px] py-[16px] px-[17px] rounded-xl bg-[#FFFFFF]">
             <div className="flex items-center justify-end mb-[10px] border border-[#ECEDEE] ml-auto px-[8px] rounded w-[95px] h-[30px]">
@@ -68,6 +70,7 @@ const Home = ({ isOpen, toggleSidebar }) => {
                 value={data.active_users}
                 value2="1.10% Since yesterday"
                   img={arrow_upward}
+                  img2={notes}
               />
               <UserCard
                 label="Total Deactivated Users"
@@ -77,6 +80,7 @@ const Home = ({ isOpen, toggleSidebar }) => {
                 value={data.suspended_user}
                 value2="1.10% Since yesterday"
                  img={arrow_upward}
+                 img2={notes}
               />
             </div>
           </div>

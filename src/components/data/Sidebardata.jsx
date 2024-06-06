@@ -72,6 +72,18 @@ export const Sidebardata = [
     },
     {
       id: 5,
+      heading: "Data Analytics",
+      items: [
+        {
+          name: "Data Analytics",
+          icon: import(`../../assets/images/hashtag.png`),
+          path:"/DataAnalytics"
+          
+        }
+      ]
+    },
+    {
+      id: 5,
       heading: "Settings",
       items: [
         {

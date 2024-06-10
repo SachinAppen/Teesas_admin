@@ -2,8 +2,9 @@ import React from "react";
 import Headcomponent from "../../../common/Headcomponent";
 import Custombutton from "../../../common/Custombutton";
 import sharp from '../../../../assets/images/sharp.png'
-import arrowleft from "../../../../assets/images/arrowleft.png";
-import arrowright from "../../../../assets/images/arrowright.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+
 
 const Details = () => {
   const data = [
@@ -12,26 +13,41 @@ const Details = () => {
       value: "10-10-2020",
     },
     {
-      label: "Date",
+      label: "Start Time",
       value: "10-10-2020",
     },
     {
-      label: "Date",
+      label: "Category",
       value: "10-10-2020",
     },
     {
-      label: "Date",
+      label: "Chapter",
       value: "10-10-2020",
     },
     {
-      label: "Date",
+      label: "Description",
       value: "10-10-2020",
     },
     {
-      label: "Date",
+      label: "Duration Spent",
+      value: "10-10-2020",
+    },
+    {
+      label: "End Time",
+      value: "10-10-2020",
+    },
+    {
+      label: "Grade",
+      value: "10-10-2020",
+    },
+    {
+      label: "Lesson Type",
       value: "10-10-2020",
     },
   ];
+  const midIndex = Math.ceil(data.length / 2);
+  const firstHalf = data.slice(0, midIndex);
+  const secondHalf = data.slice(midIndex);
   const History=[
     {
         username:"username",
@@ -65,31 +81,37 @@ const Details = () => {
             </p>
           </div>
           <div className="bg-[#FFFFFF] py-[10px] px-[8px] mt-2 rounded">
-            {data.map((item) => (
-              <div className="flex custom-gap-md .custom-gap-lg gap-12 items-center">
-                <div>
-                  <p className=" font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
-                    {item.label}
-                  </p>
-                  <p className=" text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
-                    {item.value}
-                  </p>
-                </div>
-                <div>
-                  <p className=" font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
-                    {item.label}
-                  </p>
-                  <p className=" text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
-                    {item.value}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div className="flex justify-between max-w-[800px]">
+        <div className="w-1/2">
+          {firstHalf.map((item) => (
+            <div key={item.label} className="flex flex-col mb-4">
+              <p className="font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
+                {item.label}
+              </p>
+              <p className="text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="max-w-[800px]">
+          {secondHalf.map((item) => (
+            <div key={item.label} className="flex flex-col mb-4">
+              <p className="font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
+                {item.label}
+              </p>
+              <p className="text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
           </div>
         </div>
       </div>
       <div className=" lg:grid grid-cols-2  gap-6">
-        <div className=" rounded-[18px] py-[20px] px-[20px] bg-[#FFFFFF] box-shadow mt-5  ">
+        <div className=" rounded-[18px] py-[20px] px-[10px] lg:px-[20px] bg-[#FFFFFF] box-shadow mt-5  ">
             <div className="Border">
           <Headcomponent value="Student List" />
           </div>
@@ -132,7 +154,7 @@ const Details = () => {
                           </div>
                         </div>
                         <div>
-                          <Custombutton value="Visible"
+                          <Custombutton value="Status"
                              img={sharp}
                              backgroundcolor="bg-[#E9FDEE]"
                              textcolor="text-[#2760EA]"
@@ -145,29 +167,34 @@ const Details = () => {
             </li>
           ))}
         </ul>
+        <div className="user">
+    
+    <Custombutton
+        value="Previous"
+        hidden="hidden"
+        icon={<FaArrowLeft />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="left"
+        width="w-[115px]"
+      />
+      <Custombutton
+        value="Next"
+          hidden="hidden"
+        icon={<FaArrowRight />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="right"
+      />
+              </div>
       </div>
-      <div className="user">
-        <Custombutton
-          value="Previous"
-          img={arrowleft}
-          backgroundcolor="bg-[#F2F2F2]"
-          textcolor="text-[#000000]"
-          imagePosition="left"
-        />
-        <Custombutton
-          value="Next"
-          img={arrowright}
-          backgroundcolor="bg-[#F2F2F2]"
-          textcolor="text-[#000000]"
-          imagePosition="right"
-        />
-      </div>
+   
         </div>
         <div className=" rounded-[18px] py-[20px] px-[14px] lg:px-[20px] bg-[#FFFFFF] box-shadow mt-5  ">
             <div className="Border font-medium text-[18px] leading-[25px] text-[#2C2E32]">
             Chat History
           </div>
-          <div className="bg-[#F2F2F2] rounded-[16px] p-[16px] mt-5">
+          <div className="bg-[#F2F2F2] rounded-[16px]  lg:p-[16px] mt-5">
             {
                 History.map((item)=>(
                     <div className=" border border-[#A8A8A8] bg-[#FFFFFF] px-[8px] mt-4 py-[10px] h-[135px] rounded-[8px]">

@@ -5,6 +5,8 @@ import frame2 from "../../../../assets/images/Frame2.png";
 import arrowright from "../../../../assets/images/arrowright.png";
 import arrowleft from "../../../../assets/images/arrowleft.png";
 import check from "../../../../assets/images/check.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { Navigate, useNavigate } from "react-router-dom";
 const Userfeedback = () => {
   const Navigate = useNavigate();
@@ -40,11 +42,13 @@ const Userfeedback = () => {
   };
 
   return (
-    <div className="py-[2px]  rounded-[18px] bg-[#FFFFFF]  mt-3 ">
-      <div className="user">
+    <div className="py-[2px]  rounded-[18px] bg-[#FFFFFF] ">
+      <div className="user border-b border-[#ECEDEE]">
+    
         <h2 className="text-[22px]  leading-6 text-[#2C2E32] font-medium">
           Users Feedback
         </h2>
+    
         <Custombutton
           value="Filter"
           img={frame2}
@@ -88,16 +92,20 @@ const Userfeedback = () => {
         </ul>
       </div>
       <div className="user">
-        <Custombutton
+    
+      <Custombutton
           value="Previous"
-          img={arrowleft}
+          hidden="hidden"
+          icon={<FaArrowLeft />}
           backgroundcolor="bg-[#F2F2F2]"
           textcolor="text-[#000000]"
           imagePosition="left"
+          width="w-[115px]"
         />
         <Custombutton
           value="Next"
-          img={arrowright}
+            hidden="hidden"
+          icon={<FaArrowRight />}
           backgroundcolor="bg-[#F2F2F2]"
           textcolor="text-[#000000]"
           imagePosition="right"
@@ -106,10 +114,7 @@ const Userfeedback = () => {
       {isModalOpen && (
         <Modal
           closeModal={handleModalClose}
-          label="Filter"
-          value1="Filter By Course"
-          value2="Filter By Status"
-          value3="Filter By Month"
+          label="Export"
         />
       )}
     </div>

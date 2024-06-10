@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Headcomponent from "../../../common/Headcomponent";
 import Custombutton from "../../../common/Custombutton";
 import arrowleft from "../../../../assets/images/arrowleft.png";
 import arrowright from "../../../../assets/images/arrowright.png";
 import sharp from "../../../../assets/images/sharp.png";
 import frame2 from "../../../../assets/images/Frame2.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../../common/Modal";
 
 const TicketList = () => {
-  const data = [];
+  const Navigate=useNavigate();
+  const [isModalOpen, setIsModalOpen] =  useState(false);
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+  const data = [
+    
+  ];
   return (
     <div className="">
         <div className="mt-2 ">
@@ -24,7 +35,7 @@ const TicketList = () => {
             backgroundcolor="bg-[#F2F2F2]"
             textcolor="text-[#000000]"
             imagePosition="right"
-            // onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsModalOpen(true)}
           />
         </div>
         <div className="">
@@ -36,7 +47,7 @@ const TicketList = () => {
                     {user.created_at}
                   </h6>
                 </div>
-                <div className="flex flex-col gap-2 ">
+                <div className="flex flex-col gap-2 " onClick={()=>{Navigate('/supportTicketDetails')}}>
                   <div className="flex  items-center gap-3 px-[18px]">
                     {/* <div>
                     <img src={item.icon1} alt="Icon 1" />
@@ -78,33 +89,34 @@ const TicketList = () => {
           </ul>
         </div>
         <div className="user">
-          <Custombutton
-            value="Previous"
-            img={arrowleft}
-            backgroundcolor="bg-[#F2F2F2]"
-            textcolor="text-[#000000]"
-            imagePosition="left"
-          />
-          <Custombutton
-            value="Next"
-            img={arrowright}
-            backgroundcolor="bg-[#F2F2F2]"
-            textcolor="text-[#000000]"
-            imagePosition="right"
-          />
-        </div>
-        {/* {isModalOpen && (
+    
+    <Custombutton
+        value="Previous"
+        hidden="hidden"
+        icon={<FaArrowLeft />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="left"
+        width="w-[115px]"
+      />
+      <Custombutton
+        value="Next"
+          hidden="hidden"
+        icon={<FaArrowRight />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="right"
+      />
+              </div>
+        {isModalOpen && (
           <Modal
             closeModal={handleModalClose}
             label="Filter"
             value1="Filter By Course"
             value2="Filter By Status"
             value3="Filter By Month"
-            onSelectCourse={handleFilterByCourse}
-            onSelectStatus={handleFilterByStatus}
-            onselectmonth={handleFilterByMonth}
           />
-        )} */}
+        )}
       </div>
     </div>
   );

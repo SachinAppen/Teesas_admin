@@ -1,10 +1,10 @@
 import React from 'react'
 import Custombutton from '../../../common/Custombutton';
 import Headcomponent from '../../../common/Headcomponent';
-import arrowleft from "../../../../assets/images/arrowleft.png";
-import arrowright from "../../../../assets/images/arrowright.png";
 import bookopen from "../../../../assets/images/bookopen.png";
 import sharp from "../../../../assets/images/sharp.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 
 const OneClassList = () => {
@@ -91,21 +91,25 @@ const OneClassList = () => {
           ))}
         </ul>
         <div className="user">
-      <Custombutton
+    
+    <Custombutton
         value="Previous"
-        img={arrowleft}
+        hidden="hidden"
+        icon={<FaArrowLeft />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="left"
+        width="w-[115px]"
       />
       <Custombutton
         value="Next"
-        img={arrowright}
+          hidden="hidden"
+        icon={<FaArrowRight />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="right"
       />
-    </div>
+              </div>
       </div>
     </div>
   )

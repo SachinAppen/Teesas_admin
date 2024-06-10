@@ -8,6 +8,8 @@ import Modal from "../common/Modal";
 import { getuserAsync, userAsync } from "../../apis/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const StudentList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,7 +75,7 @@ const StudentList = () => {
       <div className="">
         <ul>
           {data.map((user) => (
-            <li key={user.id}>
+            <li key={user.id} className="cursor-pointer" onClick={()=>{Navigate('/userDetails')}} >
               <div className="px-[18px] py-[10px]">
                 <h6 className=" font-light text-[12px] leading-[13px] text-[#767676] ">
                   {user.created_at}
@@ -84,7 +86,7 @@ const StudentList = () => {
                   {/* <div>
                     <img src={item.icon1} alt="Icon 1" />
                   </div> */}
-                  <div className="flex items-center  gap-2" onClick={Navigate('/userdetails')}>
+                  <div className="flex items-center  gap-2">
                     <p>{user.first_name}</p>
                     <p>{user.last_name}</p>
                   </div>
@@ -125,14 +127,17 @@ const StudentList = () => {
       <div className="user">
         <Custombutton
           value="Previous"
-          img={arrowleft}
+          hidden="hidden"
+          icon={<FaArrowLeft />}
           backgroundcolor="bg-[#F2F2F2]"
           textcolor="text-[#000000]"
           imagePosition="left"
+          width="w-[115px]"
         />
         <Custombutton
           value="Next"
-          img={arrowright}
+            hidden="hidden"
+          icon={<FaArrowRight />}
           backgroundcolor="bg-[#F2F2F2]"
           textcolor="text-[#000000]"
           imagePosition="right"

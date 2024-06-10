@@ -1,5 +1,6 @@
 import React from "react";
 import ToggleButton from "../../../components/common/ToggleButton";
+import { FaChevronLeft } from "react-icons/fa"
 
 const AddAdminRole = ({ isOpen }) => {
   const data = [
@@ -15,12 +16,15 @@ const AddAdminRole = ({ isOpen }) => {
   ];
   return (
     <div
-      className={`  py-[8rem] lg:py-[8rem] lg:px-[9rem]  px-[10px] ${
-        isOpen ? "ml-[240px]" : ""
-      }`}
-    >
+   className={`py-[7rem] lg:px-[5rem]  px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+        <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Admin Role List / <span className='text-black font-medium'> Admin Role</span></div>
+        </div>
+      </div>
       <div className=" lg:flex gap-14">
-        <div className=" rounded-[24px] py-[20px] px-[16px] bg-[#FFFFFF] lg:w-[80%] ">
+        <div className=" rounded-[24px] py-[20px] mt-5 px-[16px] bg-[#FFFFFF] lg:w-[80%] ">
           <div className="Border">
             <h2 className=" font-medium text-[18px] leading-[20px] pb-[10px] text-[#000000]">
               Add Admin Role
@@ -47,7 +51,7 @@ const AddAdminRole = ({ isOpen }) => {
             </div>
           </div>
         </div>
-        <div className="users bg-[#ffffff] lg:mt-0 mt-5 lg:w-[50%] rounded-lg h-[50%]">
+        <div className="users bg-[#ffffff] lg:mt-5 mt-5 lg:w-[50%] rounded-lg h-[50%]">
           <h2 className="text-[18px]  leading-[20px]  pb-[10px] text-[#000000] font-medium">
             Summary
           </h2>

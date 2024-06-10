@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import countrycode from "../../../components/data/Countrycode.json";
+import { FaChevronLeft } from "react-icons/fa";
 
 const AddAdminUser = ({isOpen}) => {
     const[errors,setError]= useState({});
@@ -39,7 +40,15 @@ const AddAdminUser = ({isOpen}) => {
       const currentYear = new Date().getFullYear();
       const years = Array.from({ length: 100 }, (_, index) => currentYear - index);
   return (
-    <div className={` block lg:flex justify-center gap-10 py-[8rem] lg:py-[8rem] lg:px-[9rem]  px-[10px] ${isOpen ? "ml-[240px]" : ""}`}>
+    <div
+    className={`py-[7rem] lg:px-[5rem]   px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+    <div className='flex justify-start  items-center lg:gap-3'>
+    <FaChevronLeft />
+    <div>
+      <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Admin Users/ <span className='text-black font-medium'> Add Admin Users</span></div>
+    </div>
+  </div>
+    <div className='block lg:flex justify-center gap-10 mt-5'>
           <div className="users bg-[#FFFFFF] rounded-xl lg:w-[80%]">
             <div>
             <h2 className="text-[18px]  leading-[20px] Border  pb-[10px] text-[#000000] font-medium">
@@ -254,22 +263,23 @@ const AddAdminUser = ({isOpen}) => {
             <h2 className="text-[18px]  leading-[20px]  pb-[10px] text-[#000000] font-medium">
               Summary
             </h2>
-            {/* <div className=" rounded-2xl bg-[#FFF9ED] p-4 ">
-              {
-                formData.map((item) => (
-                  <div key={item.id} className=" flex justify-between mt-2 ">
-                    <div className=" font-light text-[14px] leading-[16px] text-[#5A5B5C]">{item.label}</div>
-                    <div className="text-[16px] leading-[24px] text-[#000000]">{item.value}</div>
-                  </div>
-                ))
-              }
-            </div> */}
+            <div className="rounded-2xl bg-[#FFF9ED] p-2">
+      {Object.entries(formData).map(([key, value]) => (
+        <div key={key} className="flex  justify-between mt-2">
+          <div className="font-light mt-3 text-[14px] leading-[16px] text-[#5A5B5C]">
+            {key.replace(/_/g, " ")}
+          </div>
+          <div className="text-[16px] leading-[24px] text-[#000000]">{value}</div>
+        </div>
+      ))}
+    </div>
 
             <div className="bg-[FFF9FD] m-auto my-10">
               <button type="button" className=" h-[32px] rounded-lg text-center  w-[200px]  text-white bg-[#F2994A]" onClick={()=>{
                 submitContactForm()
               }}>Create</button>
             </div>
+          </div>
           </div>
   </div>
   )

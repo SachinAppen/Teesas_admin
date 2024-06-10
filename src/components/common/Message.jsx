@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import star from '../../assets/images/star.png'
 import { CiStar } from "react-icons/ci";
 const Message = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,18 +13,19 @@ const Message = () => {
       }
   return (
     <div className="mt-10 bg-[#FFFFFF] border border-[#ECEDEE] rounded-[18px]  pb-[20px] box-shadow">
-    <div className="Border">
-      <div className=" py-[10px] px-[15px]">
+    <div className="">
+      <div className=" py-[20px] px-[15px] Border">
         <h2 className=" font-medium text-[18px] leading-[25px] text-[#2C2E32]">
           Message
         </h2>
       </div>
+      <p className=' text-end px-[20px] pt-[14px] font-normal text-[14px] leading-[20px] text-[#F2994A]'>Update Status</p>
     </div>
     <div className="px-[10px] mt-5 h-full">
-      <div className=" rounded-2xl bg-[#F2F2F2] p-[16px] ">
-        <div className="bg-[#FFFFFF] py-[10px] px-[8px] rounded-[4px]">
+      <div className=" rounded-2xl bg-[#F2F2F2]  p-[16px] ">
+        <div className="bg-[#FFFFFF] pt-[30px] px-[8px] rounded-[4px]">
           <div className="lg:h-[38px] ">
-            <p className="text-[14px] leading-4 text-[#222222E5] mb-[5px]">
+            <p className="text-[14px] leading-4  text-[#222222E5] mb-[5px]">
               I need to upgrade my son's grade because he's now in high
               school. what are the steps to doing that please
             </p>
@@ -33,13 +35,8 @@ const Message = () => {
             <span className=" text-[#B8B8B8] text-[12px] font-normal leading-[21px]">
               Rating :
             </span>
-            <span className="flex">
-              <CiStar />
-              <CiStar />
-              <CiStar />
-              <CiStar />
-           
-              <CiStar />
+            <span className="flex text-[#FF9F1C]">
+                  <img src={star}/>
             </span>
           </div>
         </div>
@@ -51,12 +48,12 @@ const Message = () => {
           {show ? (
             <>
                {/* <label>Message</label> */}
-              <div className="bg-[#F8F8F8] p-[8px] rounded-lg mt-2 h-[130px] border  border-[#D9D9D9] ">
+              <div className="bg-[#FFFFFF] p-[8px]  rounded-lg mt-2 h-[130px] border  border-[#D9D9D9] ">
                 <textarea
                   placeholder="Enter Message Here"
-                  className=" outline-none w-full"
+                  className=" outline-none w-full "
                 ></textarea>
-                   <div className="flex justify-end gap-[20px] my-[20px]">
+                   <div className="flex justify-end   gap-[20px] my-[20px]">
                   <button
                     onClick={() => setshow(!show)}
                     className="text-[#828282] py-[10px] rounded-lg cancel px-[24px] text-[14px] leading-[20px] text-center font-bold "

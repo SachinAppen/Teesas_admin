@@ -1,5 +1,6 @@
 import React from 'react'
 import letter from '../../..//assets/images/letter.png'
+import { FaChevronLeft } from "react-icons/fa";
 const AdminUserDetails = ({isOpen}) => {
     const data = [
         {
@@ -27,13 +28,20 @@ const AdminUserDetails = ({isOpen}) => {
           value: "10-10-2020",
         },
       ];
+      const midIndex = Math.ceil(data.length / 2);
+      const firstHalf = data.slice(0, midIndex);
+      const secondHalf = data.slice(midIndex);
   return (
     <div
-    className={` py-[8rem] lg:px-[10rem] px-[10px]  ${
-      isOpen ? "ml-[240px]" : ""
-    }`}
-  >
-      <div className="bg-[#FFF9ED] border rounded-lg mb-[10px] border-[#CAC4D0] h-[80px] p-[8px]">
+className={`py-[7rem] lg:px-[5rem]   px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+  
+   <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / Admin Users / <span className='text-black font-medium'> Admin Users Details</span></div>
+        </div>
+      </div>
+      <div className="bg-[#FFF9ED] mt-10 border rounded-lg mb-[10px] border-[#CAC4D0] h-[80px] p-[8px]">
         <div className="flex items-center gap-4">
           <div>
             <img src={letter} className="w-[40px] h-[40px]" />
@@ -59,28 +67,32 @@ const AdminUserDetails = ({isOpen}) => {
           </h2>
         </div>
         <div className="bg-[#F2F2F2] p-[16px] rounded-[16px] mt-3">
-          <div className="bg-[#FFFFFF] py-[10px] px-[8px] mt-2 rounded">
-            {data.map((item) => (
-              <div className="flex  gap-[40rem]  items-center">
-                <div>
-                  <p className=" font-normal text-[14px] leading-[18px] text-[#1F1F1FB2]">
-                    {item.label}
-                  </p>
-                  <p className=" text-[16px] leading-[20px] font-normal text-[#222222E5]">
-                    {item.value}
-                  </p>
-                </div>
-                <div>
-                  <p className=" font-normal text-[14px] leading-[18px] text-[#1F1F1FB2]">
-                    {item.label}
-                  </p>
-                  <p className=" text-[16px] leading-[20px] font-normal text-[#222222E5]">
-                    {item.value}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex justify-between max-w-[800px]">
+        <div className="w-1/2">
+          {firstHalf.map((item) => (
+            <div key={item.label} className="flex flex-col mb-4">
+              <p className="font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
+                {item.label}
+              </p>
+              <p className="text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="max-w-[800px]">
+          {secondHalf.map((item) => (
+            <div key={item.label} className="flex flex-col mb-4">
+              <p className="font-normal text-[12px] lg:text-[14px] leading-[18px] text-[#1F1F1FB2]">
+                {item.label}
+              </p>
+              <p className="text-[13px] lg:text-[16px] leading-[20px] font-normal text-[#222222E5]">
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
         </div>
       </div>
     </div>

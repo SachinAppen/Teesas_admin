@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Validation from './Validation';
+import Logo from "../../assets/svg/edo-best.svg";
 
 function Login() {
 
@@ -26,9 +27,9 @@ function Login() {
    
 };
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-    },[]);
+    // },[]);
 
     const SubmitSigninAction = () => {
       console.log("formdata",formData)
@@ -52,16 +53,16 @@ function Login() {
                 const data = res?.data?.data?.user?.[0];
                 const username = data?.firstName + ' ' + data?.lastName;
                 localStorage.setItem('authToken', res?.data?.data?.user?.token);
-                navigate('/home/users')
-                console.log("dataa",res?.data?.data?.user?.token)
-
-                setLoading(false);
+                navigate('/Dashboard')
+               setLoading(false);
               } else {
                 toast.error(res?.data?.message);
                 setLoading(false);
+                navigate('/Dashboard')
               }
             },
           });
+          navigate('/Dashboard')
         // }
       };
 
@@ -74,18 +75,18 @@ function Login() {
 
         <div className="mt-5 flex justify-center items-center">
           <img
-            src="src/assets/svg/edo-best.svg"
+            src={Logo}
             className="w-[130px] h-[40px]"
             alt="Logo"
           />
         </div>
 
-        <div className="mt-[100px] border-[#C3C3C3] border bg-[#FFFFFF] max-w-[500px] p-10 rounded-3xl">
+        <div className="mt-[100px] border-[#C3C3C3] border bg-[#FFFFFF] min-w-[350px] lg:min-w-[450px]  p-10 rounded-3xl">
           <div className="text-[30px] text-start font-bold ">Sign In</div>
-          <div className="mt-2 text-[15px] pr-10 text-[#313957]">
+         { /*<div className="mt-2 text-[15px] pr-10 text-[#313957]">
             Today is a new day. It's your day. You shape it. Sign in to start
             managing your projects.
-          </div>
+          </div>*/}
 
           <div className="text-[12px] text-[#3D3D3D] mt-10">Email</div> <input type="text" name='email' value={formData.email} className="w-full mt-1 bg-[#F8F8F8] text-[14px] border p-2 border-[#D9D9D9] h-[40px] rounded-lg" placeholder="Enter Details" onChange={handlechange}/>
   

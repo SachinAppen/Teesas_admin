@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import letter from '../../../assets/images/letter.png'
 import Message from '../../../components/common/Message';
+import { FaChevronLeft } from "react-icons/fa";
 const SupportTicketDetails = ({isOpen}) => {
 
   return (
-    <div className={`py-[8rem] lg:py-[8rem] lg:px-[9rem]  ${isOpen ? "ml-[240px]" : ""}`}>
-    <div className="bg-[#FFF9ED] border rounded-lg  mb-[20px] border-[#CAC4D0] h-[68px] p-[8px]">
+    <div className={`py-[7rem] lg:px-[5rem]  flex flex-col gap-2 px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+         <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / <span className='text-black font-medium'>Support Ticket</span></div>
+        </div>
+      </div>
+    <div className="bg-[#FFF9ED] border rounded-lg  mt-4 mb-[20px] border-[#CAC4D0] h-[68px] p-[8px]">
       <div className="flex items-center gap-4">
         <div>
           <img src={letter} className="w-[40px] h-[40px]" />

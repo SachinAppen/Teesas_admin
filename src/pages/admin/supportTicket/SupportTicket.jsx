@@ -3,14 +3,18 @@ import live from "../../../assets/images/live.png";
 import liveimage from "../../../assets/images/liveimage.png";
 import UserCard from "../../../components/common/UserCard";
 import TicketList from "../../../components/Core/Dashboard/Admin/TicketList";
+import { FaChevronLeft } from "react-icons/fa";
 const SupportTicket = ({ isOpen }) => {
   return (
     <div
-      className={`p-4 lg:pl-[161px] lg:pr-[129px] ${
-        isOpen ? "lg:ml-[240px]" : ""
-      }`}
-    >
-      <h2 className=" font-bold text-[22px]  leading-[28px] text-[#2C2E32] mt-32">
+      className={`py-[7rem] lg:px-[5rem]  flex flex-col gap-2 px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+       <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / <span className='text-black font-medium'>Support Ticket</span></div>
+        </div>
+      </div>
+      <h2 className=" mt-5 font-bold text-[22px]  leading-[28px] text-[#2C2E32] ">
         Support Ticket
       </h2>
       <div className="mt-5">

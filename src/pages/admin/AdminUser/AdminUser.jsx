@@ -1,14 +1,15 @@
 import React from 'react'
 import live from '../../../assets/images/live.png'
 import liveimage from '../../../assets/images/liveimage.png'
-import arrowleft from "../../../assets/images/arrowleft.png";
-import arrowright from "../../../assets/images/arrowright.png";
 import bookopen from "../../../assets/images/bookopen.png";
 import sharp from "../../../assets/images/sharp.png";
 import UserCard from '../../../components/common/UserCard';
 import Headcomponent from '../../../components/common/Headcomponent';
 import Custombutton from '../../../components/common/Custombutton';
 import { useNavigate } from 'react-router-dom';
+import { FaChevronLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AdminUser = ({isOpen}) => {
   const Navigate = useNavigate();
@@ -41,11 +42,15 @@ const AdminUser = ({isOpen}) => {
       ];
   return (
     <div
-    className={`p-4 lg:pl-[161px] lg:pr-[129px] ${
-      isOpen ? "lg:ml-[240px]" : ""
-    }`}
-  >
-    <h2 className=" font-bold text-[22px]  leading-[28px] text-[#2C2E32] mt-32">
+    className={`py-[7rem] lg:px-[5rem]   px-[10px] ${isOpen ? "lg:ml-[260px]" : ""}`}>
+
+       <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / <span className='text-black font-medium'> Admin Users</span></div>
+        </div>
+      </div>
+    <h2 className=" font-bold text-[22px]  leading-[28px] text-[#2C2E32] mt-6">
     Admin Users 
     </h2>
     <div className="mt-5">
@@ -59,8 +64,8 @@ const AdminUser = ({isOpen}) => {
       />
     </div>
     <div className=" flex  justify-end mt-4 ">
-        <button className="text-[14px] leading-[20px] text-center font-bold  w-[147px] h-[40px] rounded-lg py-[7px] px-[12px] bg-[#F2994A] text-white" onClick={()=>{Navigate('/AddAdminUser')}}>
-        Add Admin Users 
+        <button className="text-[14px] leading-[20px] text-center font-bold  w-[160px] h-[40px] rounded-lg py-[7px] px-[12px] bg-[#F2994A] text-white" onClick={()=>{Navigate('/AddAdminUser')}}>
+       + Add Admin Users 
         </button>
       </div>
       <div className="py-[2px] px-[20px]  rounded-[18px] bg-[#FFFFFF] mt-8 ">
@@ -77,7 +82,7 @@ const AdminUser = ({isOpen}) => {
                 <img src={bookopen} alt="" className=" absolute top-[8px] left-[9px]" />
               </div>
               <div>
-              <div className="flex items-center gap-3 px-[18px]">
+              <div className="flex items-center gap-3 px-[18px] cursor-pointer" onClick={()=> Navigate('/AdminUserDetails')}>
                 {/* <div>
                   <img src={item.icon1} alt="Icon 1" />
                 </div> */}
@@ -106,21 +111,25 @@ const AdminUser = ({isOpen}) => {
       </ul>
     </div>
     <div className="user">
-      <Custombutton
+    
+    <Custombutton
         value="Previous"
-        img={arrowleft}
+        hidden="hidden"
+        icon={<FaArrowLeft />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="left"
+        width="w-[115px]"
       />
       <Custombutton
         value="Next"
-        img={arrowright}
+          hidden="hidden"
+        icon={<FaArrowRight />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="right"
       />
-    </div>
+              </div>
   </div>
     </div>
   )

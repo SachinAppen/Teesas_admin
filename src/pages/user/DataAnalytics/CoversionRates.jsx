@@ -6,8 +6,14 @@ import arrow_upward from '../../../assets/images/arrow_upward.png'
 import notes from "../../../assets/images/Group1000001600.png";
 import Button from '../../../components/common/Button';
 import BarChart from '../../../components/Core/Dashboard/Admin/Barcharts';
+import { useState } from 'react';
+import Modal from '../../../components/common/Modal';
  
  const  ConversionRates = ({ isOpen }) => {
+    const [isModalOpen, setIsModalOpen] =   useState(false);
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+      };
    return (
      <div className={`py-[8rem] px-[10px] lg:py-[8rem] lg:px-[9rem]  ${isOpen ? "ml-[240px]" : ""}`}>
          <div className=' font-medium text-[18px] leading-[25px]'>
@@ -75,6 +81,7 @@ import BarChart from '../../../components/Core/Dashboard/Admin/Barcharts';
                             backgroundcolor="bg-[#F2F2F2]"
                             textcolor="text-[#000000]"
                             imagePosition="right"
+                            onClick={() => setIsModalOpen(true)}
                         />
                 </div>
             </div>
@@ -83,6 +90,15 @@ import BarChart from '../../../components/Core/Dashboard/Admin/Barcharts';
             </div>
 
             </div>
+            {isModalOpen && (
+        <Modal
+          closeModal={handleModalClose}
+          label="Filter"
+          value1="Filter By Course"
+          value2="Filter By Status"
+          value3="Filter By Month"
+        />
+      )}
      </div>
    )
  }

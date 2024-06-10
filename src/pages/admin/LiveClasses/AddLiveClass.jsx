@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SucessfullSchedule from "./SucessfullSchedule";
+import { FaChevronLeft } from "react-icons/fa";
 
 const AddLiveClass = ({ isOpen }) => {
   const [errors, setError] = useState({});
@@ -24,11 +25,14 @@ const AddLiveClass = ({ isOpen }) => {
   console.log(formData);
   return (
     <div
-      className={` py-[8rem] lg:px-[10rem] px-[10px] flex flex-col  gap-2 ${
-        isOpen ? "ml-[240px]" : ""
-      }`}
-    >
-      <div className="lg:flex gap-14 ">
+      className={`py-[7rem] lg:px-[5rem]  flex flex-col gap-2 px-[10px] ${isOpen ? "xl:ml-[260px]" : ""}`}>
+         <div className='flex justify-start  items-center lg:gap-3'>
+        <FaChevronLeft />
+        <div>
+          <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home /<span className='text-black font-medium'> Add Live Class</span></div>
+        </div>
+      </div>
+      <div className="lg:flex gap-14  mt-5">
         <div className=" rounded-[24px] py-[20px] px-[16px] bg-[#FFFFFF] lg:w-[80%]">
           <div className="Border ">
             <h2 className=" font-medium text-[18px]  leading-[20px] text-[#000000] pb-[20px]">
@@ -244,16 +248,16 @@ const AddLiveClass = ({ isOpen }) => {
           <h2 className="text-[18px]  leading-[20px]  pb-[10px] text-[#000000] font-medium">
             Summary
           </h2>
-          {/* <div className=" rounded-2xl bg-[#FFF9ED] p-4 ">
-                {
-                  formData.map((item) => (
-                    <div key={item.id} className=" flex justify-between mt-2 ">
-                      <div className=" font-light text-[14px] leading-[16px] text-[#5A5B5C]">{item.label}</div>
-                      <div className="text-[16px] leading-[24px] text-[#000000]">{item.value}</div>
-                    </div>
-                  ))
-                }
-              </div> */}
+          <div className="rounded-2xl bg-[#FFF9ED] p-2">
+      {Object.entries(formData).map(([key, value]) => (
+        <div key={key} className="flex  justify-between mt-2">
+          <div className="font-light mt-3 text-[14px] leading-[16px] text-[#5A5B5C]">
+            {key.replace(/_/g, " ")}
+          </div>
+          <div className="text-[16px] leading-[24px] text-[#000000]">{value}</div>
+        </div>
+      ))}
+    </div>
 
           <div className="bg-[FFF9FD] m-auto my-10">
             <button

@@ -48,7 +48,7 @@ const ActivityLog = () => {
               Activity Log
               </h2>
             </div>
-            <div className=" text-[12px] lg:text-[14px] leading-[19px] font-normal text-[#0B6661] ">
+            <div className=" text-[12px] cursor-pointer lg:text-[14px] leading-[19px] font-normal text-[#0B6661] ">
               View All
             </div>
           </div>
@@ -78,7 +78,7 @@ const ActivityLog = () => {
               Favourite Lessons
               </h2>
             </div>
-            <div className=" text-[12px] lg:text-[14px] leading-[19px] font-normal text-[#0B6661] ">
+            <div className=" text-[12px] cursor-pointer lg:text-[14px] leading-[19px] font-normal text-[#0B6661] ">
               View All
             </div>
           </div>

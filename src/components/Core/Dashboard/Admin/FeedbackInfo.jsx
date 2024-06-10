@@ -35,8 +35,23 @@ const FeedbackInfo = () => {
     },
     {
       id: 6,
+      label: "Date Sent",
+      value: "10-10-2020",
+    },
+    {
+      id: 7,
       label: "Email",
       value: "siddxd@growthx.com",
+    },
+    {
+      id: 8,
+      label: "Phone Number",
+      value: "+234 9065245732",
+    },
+    {
+      id: 9,
+      label: "Status",
+      value: "Resolved",
     },
   ];
   return (
@@ -72,7 +87,15 @@ const FeedbackInfo = () => {
                   </div>
                   <div className="">
                     <p className=" font-normal   text-[16px] leading-[20px] text-[#222222E5]">
-                      {item.value}
+                    {item.value}
+                    { item.value=="Status"?(
+                      <>
+                        <div className="h-[20px] bg-[#70FFB7] rounded-[15px] text-black font-normal text-[13px] leading-[15px] text-center">
+                        {item.value}
+                        </div>
+                      </>
+                    ):""}
+                    
                     </p>
                   </div>
                 </div>

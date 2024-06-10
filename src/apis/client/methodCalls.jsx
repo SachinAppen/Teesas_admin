@@ -16,7 +16,8 @@ export const getAPICall = async (
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + accessToken,
-      mode: '*',
+      'Access-Control-Allow-Origin':'http://localhost:4000',
+     mode: '*',
     },
   });
 
@@ -35,6 +36,7 @@ export const postAPICall = async (
     : access_token;
   const myHeaders = new Headers();
   myHeaders.append('mode', '*');
+  myHeaders.append('Access-Control-Allow-Origin','http://localhost:4000');
 
   isArrayType
     ? myHeaders.append('Content-Type', 'application/json ')

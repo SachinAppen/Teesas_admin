@@ -4,9 +4,11 @@ const Validation = (formData) => {
   const errors = {};
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   // const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-  if (formData.email === "" && formData.password === "") {
-    errors.email = "Email is required";
-    errors.email = "Password is required";
+  if (formData.first_name === "") {
+    errors.first_name = "First Name is required";
+  }
+  if (formData.last_name === "") {
+    errors.last_name = "last Name is required";
   }
 
   if (formData.email === "") {
@@ -29,11 +31,14 @@ const Validation = (formData) => {
   if (formData.verification === "") {
     errors.verification = "enter the otp";
   }
+  if (formData.city === "") {
+    errors.city = "city is required";
+  }
 
   if (formData.FullName === "") {
     errors.FullName = "Enter FullName";
   }
-  if (formData.Gender === "") {
+  if (formData.gender === "") {
     errors.Gender = "Select Gender";
   }
   if (formData.Address === "") {
@@ -59,11 +64,11 @@ const Validation = (formData) => {
   if (formData.Grade=== "") {
     errors.Grade= "Select Grade";
   }
-  if(formData.PhoneNumber===""){
-    errors.PhoneNumber=='Please enter phone Number'
-  }else if(formData.PhoneNumber>10 && formData.PhoneNumber<10)
+  if(formData.mobile===""){
+    errors.mobile=='Please enter phone Number'
+  }else if(formData.mobile>10 && formData.mobile<10)
     {
-      errors.PhoneNumber=='Enter a valid Phone Number'
+      errors.mobile=='Enter a valid Phone Number'
     }
 
   return errors;

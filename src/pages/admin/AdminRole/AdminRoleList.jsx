@@ -4,6 +4,8 @@ import arrowleft from "../../../assets/images/arrowleft.png";
 import arrowright from "../../../assets/images/arrowright.png";
 import Headcomponent from "../../../components/common/Headcomponent";
 import Custombutton from "../../../components/common/Custombutton";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const AdminRoleList = () => {
   const data = [
@@ -52,21 +54,25 @@ const AdminRoleList = () => {
           ))}
         </ul>
         <div className="user">
-          <Custombutton
-            value="Previous"
-            img={arrowleft}
-            backgroundcolor="bg-[#F2F2F2]"
-            textcolor="text-[#000000]"
-            imagePosition="left"
-          />
-          <Custombutton
-            value="Next"
-            img={arrowright}
-            backgroundcolor="bg-[#F2F2F2]"
-            textcolor="text-[#000000]"
-            imagePosition="right"
-          />
-        </div>
+    
+    <Custombutton
+        value="Previous"
+        hidden="hidden"
+        icon={<FaArrowLeft />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="left"
+        width="w-[115px]"
+      />
+      <Custombutton
+        value="Next"
+          hidden="hidden"
+        icon={<FaArrowRight />}
+        backgroundcolor="bg-[#F2F2F2]"
+        textcolor="text-[#000000]"
+        imagePosition="right"
+      />
+              </div>
       </div>
     </div>
   );

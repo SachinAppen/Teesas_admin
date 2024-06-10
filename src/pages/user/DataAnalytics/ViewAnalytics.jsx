@@ -1,12 +1,17 @@
- import React from 'react'
+ import React, { useState } from 'react'
 import UserCard from '../../../components/common/UserCard'
 import Custombutton from '../../../components/common/Custombutton'
 import frame2 from "../../../assets/images/Frame2.png";
 import arrow_upward from '../../../assets/images/arrow_upward.png'
 import notes from "../../../assets/images/Group1000001600.png";
 import BarChart from '../../../components/Core/Dashboard/Admin/Barcharts';
+import Modal from '../../../components/common/Modal';
  
  const ViewAnalytics = ({ isOpen }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+      };
    return (
      <div className={`py-[8rem] px-[10px] lg:py-[8rem] lg:px-[9rem]  ${isOpen ? "ml-[240px]" : ""}`}>
          <div className=' font-medium text-[18px] leading-[25px]'>
@@ -74,13 +79,22 @@ import BarChart from '../../../components/Core/Dashboard/Admin/Barcharts';
                             backgroundcolor="bg-[#F2F2F2]"
                             textcolor="text-[#000000]"
                             imagePosition="right"
+                            onClick={() => setIsModalOpen(true)}
                         />
                 </div>
             </div>
             <div>
                 <BarChart/>
             </div>
-
+            {isModalOpen && (
+        <Modal
+          closeModal={handleModalClose}
+          label="Filter"
+          value1="Filter By Course"
+          value2="Filter By Status"
+          value3="Filter By Month"
+        />
+      )}
             </div>
      </div>
    )

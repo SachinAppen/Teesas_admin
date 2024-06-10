@@ -1,12 +1,15 @@
 import hashtag from '../../assets/images/hashtag.png'
-export const Sidebardata = [
+import home from '../../assets/images/home.png';
+import feedback from '../../assets/images/Feedback.png';
+
+  const Sidebardata = [
     {
       id: 1,
       heading: "User Management",
       items: [
         {
           name: "Users",
-        icon: import(`../../assets/images/home.png`),
+        icon: home,
         path:"/users"
         },
         {
@@ -16,7 +19,7 @@ export const Sidebardata = [
         },
         {
           name: "Feedback",
-          icon: "loudspeaker",
+          icon: feedback,
           path:"/feedback"
         }
       ]
@@ -27,8 +30,10 @@ export const Sidebardata = [
       items: [
         {
           name: "Leaderboard",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/Leaderboard"
+        
+          
         }
       ]
     },
@@ -38,22 +43,22 @@ export const Sidebardata = [
       items: [
         {
           name: "Teacher List/Management",
-          icon: import(`../../assets/images/hashtag.png`),
-          path:"/teacherlistmanagement"
+          icon: hashtag,
+          path:"/Teacher"
         },
         {
           name: "Student List/Management",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/studentlistmanagement"
         },
         {
           name: "Schedule Live Classes",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/scheduleliveclasses"
         },
         {
           name: "One-on-One Class Management",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/one-on-oneclassmanagement"
         }
       ]
@@ -64,7 +69,7 @@ export const Sidebardata = [
       items: [
         {
           name: "Support Ticket",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/supportmanagement"
           
         }
@@ -76,7 +81,7 @@ export const Sidebardata = [
       items: [
         {
           name: "Data Analytics",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/DataAnalytics"
           
         }
@@ -88,7 +93,7 @@ export const Sidebardata = [
       items: [
         {
           name: "Change Password",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/ChangePassword"
         }
       ]
@@ -99,13 +104,13 @@ export const Sidebardata = [
       items: [
         {
           name: "Admin Role",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon: hashtag,
           path:"/AdminRole"
 
         },
         {
           name: "Admin Users",
-          icon: import(`../../assets/images/hashtag.png`),
+          icon:hashtag,
           path:"/AdminUser"
         }
       ]
@@ -114,4 +119,4 @@ export const Sidebardata = [
  
    
   ];
-  
+  export default Sidebardata

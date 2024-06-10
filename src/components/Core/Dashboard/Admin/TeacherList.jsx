@@ -1,11 +1,14 @@
 import React from 'react'
 import Headcomponent from '../../../common/Headcomponent'
 import Custombutton from '../../../common/Custombutton'
-import arrowleft from "../../../../assets/images/arrowleft.png";
-import arrowright from "../../../../assets/images/arrowright.png";
 import check from "../../../../assets/images/check.png";
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const TeacherList = () => {
+  const Navigate= useNavigate();
     const data=[
         {
 
@@ -25,7 +28,7 @@ const TeacherList = () => {
                 {user.created_at}
               </h6>
             </div>
-            <div className="flex flex-col gap-2 ">
+            <div className="flex flex-col gap-2  cursor-pointer"  onClick={() => Navigate('/TestDetails')}>
               <div className="flex  items-center gap-3 px-[18px]">
                 {/* <div>
                   <img src={item.icon1} alt="Icon 1" />
@@ -69,21 +72,25 @@ const TeacherList = () => {
       </ul>
     </div>
     <div className="user">
-      <Custombutton
+    
+    <Custombutton
         value="Previous"
-        img={arrowleft}
+        hidden="hidden"
+        icon={<FaArrowLeft />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="left"
+        width="w-[115px]"
       />
       <Custombutton
         value="Next"
-        img={arrowright}
+          hidden="hidden"
+        icon={<FaArrowRight />}
         backgroundcolor="bg-[#F2F2F2]"
         textcolor="text-[#000000]"
         imagePosition="right"
       />
-    </div>
+              </div>
   </div>
   )
 }

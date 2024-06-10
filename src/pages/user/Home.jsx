@@ -8,6 +8,7 @@ import Headcomponent from "../../components/common/Headcomponent";
 import arrow_upward from '../../assets/images/arrow_upward.png'
 import { useDispatch } from "react-redux";
 import { userAsync } from "../../apis/slices/authSlice";
+import { FaChevronLeft } from "react-icons/fa";
 import notes from "../../assets/images/Group1000001600.png";
 const Home = ({ isOpen, toggleSidebar }) => {
   const [selectedMonth, setSelectedMonth] = useState("August");
@@ -37,11 +38,14 @@ const Home = ({ isOpen, toggleSidebar }) => {
   return (
     <div>
       <div
-        className={`p-4 lg:pl-[161px] lg:pr-[129px] ${
-          isOpen ? "lg:ml-[240px]" : ""
-        }`}
-      >
-        <h2 className=" font-bold text-[22px]  leading-[28px] text-[#2C2E32] mt-32">
+        className={` py-[7rem] lg:px-[5rem] px-[10px] ${isOpen ? "xl:ml-[260px]" : ""}`}>
+              <div className='flex justify-start items-center lg:gap-3'>
+          <FaChevronLeft />
+          <div>
+           <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home /<span className='text-black font-medium'> Users</span></div>
+          </div>
+    </div>
+        <h2 className=" font-bold text-[22px]  leading-[28px] text-[#2C2E32] mt-10 ">
           Users
         </h2>
         <div className="flex gap-5 flex-col mt-4 ">
@@ -69,8 +73,8 @@ const Home = ({ isOpen, toggleSidebar }) => {
                 backgroundcolor="bg-[#F2F2F2]"
                 value={data.active_users}
                 value2="1.10% Since yesterday"
-                  img={arrow_upward}
-                  img2={notes}
+                img={arrow_upward}
+                img2={notes}
               />
               <UserCard
                 label="Total Deactivated Users"
@@ -87,7 +91,7 @@ const Home = ({ isOpen, toggleSidebar }) => {
         </div>
         <Button value1={"Export CSV"}
         value2={"Add User"} />
-        <Headcomponent border="none" />
+        <Headcomponent border="none"  />
         <StudentList />
       </div>
     </div>

@@ -4,6 +4,7 @@ import Customadduser from "../../components/common/Customadduser";
 import { addUserAsync } from "../../apis/slices/authSlice";
 import { useDispatch } from "react-redux";
 import Validation from "../login/Validation";
+import { FaChevronLeft } from "react-icons/fa";
 
 const EditUser = ({ isOpen, togglesidebar }) => {
   const [showCustomAddUser, setShowCustomAddUser] = useState(false);
@@ -11,18 +12,17 @@ const EditUser = ({ isOpen, togglesidebar }) => {
   const [formData, setformData] = useState({
     first_name: "",
     last_name:"",
-    city:"",
+    Middle_name:"",
     gender:"",
     DateofBirth:"",
     PhoneNumber:"",
     email:"",
     Address:"",
     LocalGovernment:"",
-    AcademyCode:"",
-    AcademyName:"",
-    LGA:"",
-    SenatorialDistrict:"",
-    Grade:"",
+    ParentName:"",
+    ParentNumber:"",
+    ParentAddress:"",
+    ParentRelationship:"",
     password:"",
     ConfirmPassword:""
   });
@@ -42,22 +42,19 @@ const EditUser = ({ isOpen, togglesidebar }) => {
   const finaldata={
     first_name:formData.first_name,
     last_name:formData.last_name,
+    Middle_name:formData.Middle_name,
     gender: formData.gender.toUpperCase(),
-    city:formData.city,
     birthday:formData.birthday,
     mobile:formData.mobile,
     email:formData.email,
     country_id: formData.country_id,
-    academy_id: formData.academy_id,
-    class_id: formData.class_id,
     password: formData.password,
+    parentName:formData.parentName,
+    Pnumber:formData.Pnumber,
+    PAddress:formData.PAddress,
+    Prelationship:formData.Prelationship,
     Address:formData.Address,
     LocalGovernment:formData.LocalGovernment,
-    AcademyCode:formData.AcademyCode,
-    AcademyName:formData.AcademyName,
-    LGA:formData.LGA,
-    SenatorialDistrict:formData.SenatorialDistrict,
-    Grade:formData.Gender,
     Password:formData.password,
     ConfirmPassword:formData.ConfirmPassword
   }
@@ -97,7 +94,15 @@ const EditUser = ({ isOpen, togglesidebar }) => {
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 100 }, (_, index) => currentYear - index);
   return (
-    <div className={` block lg:flex justify-center gap-10 py-[8rem] lg:py-[8rem] lg:px-[9rem]  px-[10px] ${isOpen ? "ml-[240px]" : ""}`}>
+    
+    <div className={`  py-[7rem] lg:px-[5rem]  px-[10px] ${isOpen ? "xl:ml-[260px]" : ""}`}>
+      <div className='flex justify-start  items-center lg:gap-3'>
+    <FaChevronLeft />
+    <div>
+     <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / Users/<span className='text-black font-medium'> EditUsers</span></div>
+    </div>
+    </div>
+    <div className=" block lg:flex justify-center lg:gap-[17px] xl:gap-10 py-[2rem]">
       {
         showCustomAddUser ? (<Customadduser showCustomAddUser={showCustomAddUser} setShowCustomAddUser={setShowCustomAddUser} isOpen={isOpen}
           img=""
@@ -108,16 +113,19 @@ const EditUser = ({ isOpen, togglesidebar }) => {
           <>
             <div className="users bg-[#FFFFFF] rounded-xl lg:w-[80%]">
               <h2 className="text-[18px]  leading-[20px] Border  pb-[10px] text-[#000000] font-medium">
-                Edit User Details
+              Edit User Details
               </h2>
               <div>
                 <p className=" font-medium text-[14px] leading-[18px] mt-5 text-[#3D3D3D] pb-[8px]">
                   Upload User Image
                 </p>
-                <div className="h-[48px] py-[10px] border border-dashed text-[#B9B9B9] bg-[#FFF9ED] rounded-lg">
-                  <p className=" font-normal text-[16px] leading-[24px] text-center  translate-x-0 text-[#49454F]">
-                    Click to upload Image
+                <div className="h-[48px] py-[10px] border border-dashed border-[#B9B9B9]  text-[#B9B9B9] bg-[#FFF9ED] rounded-lg">
+                  <p className=" font-normal text-center cursor-pointer text-[16px] leading-[24px]  translate-x-0 text-[#49454F]">
+                 <div className="text-center relative "> Click to upload Image</div> 
+                  <input type="file" className="text-[#FFF9ED] w-0  opacity-0 absolute top-0 left-[45%] " placeholder=""/>
+                 
                   </p>
+               
                 </div>
               </div>
 
@@ -140,7 +148,21 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                     )}
                   </div>
                   <div>
-                    <label for="last_name" className="font-medium text-[14px] mt-5 leading-[18px] text-[#3D3D3D]  block">Last Name</label>
+                    <label for="Middle_name" className="font-medium text-[14px] mt-5 leading-[18px] text-[#3D3D3D]  block">Middle Name</label>
+                    <input
+                      type="text"
+                      name="Middle_name"
+                      value={formData.Middle_name}
+                      className="mt-1  text-[14px] w-full  outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
+                      placeholder="Enter Details"
+                      onChange={onchangeHandler}
+                    />
+                    {errors.Middle_name && (
+                      <span className=" text-red-500 block p-[8px]">Enter Middle_name *</span>
+                    )}
+                  </div>
+                  <div>
+                    <label for="last_name" className="font-medium text-[14px] mt-2 leading-[18px] text-[#3D3D3D]  block">Last Name</label>
                     <input
                       type="text"
                       name="last_name"
@@ -153,6 +175,7 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                       <span className=" text-red-500 block p-[8px]">Enter last_name *</span>
                     )}
                   </div>
+
                   </div>
 
                   <div className=" block lg:grid grid-cols-2 gap-5 mt-5">
@@ -203,7 +226,7 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                           </option>
                         ))}
                       </select>
-                      {errors.birthday && (
+                      {errors.Dob && (
                       <span className=" text-red-500 block p-[8px]">Enter Date oF Birth *</span>
                     )}
                     </div>
@@ -255,7 +278,7 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                             // })}
                           />
                           {errors.mobile && (
-                            <span className=" text-red-500">
+                            <span className=" text-red-500 block p-[8px]">
                             </span>
                           )}
                         </div>
@@ -317,66 +340,62 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                         <span className="text-red-500 block p-[8px]">Enter LocalGovernment *</span>
                       )}
                     </div>
-                    {/* Academy Code */}
                     <div className="">
-                      <label for="AcademyCode" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] " >Academy Code</label>
+                      <label for="ParentName" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] " >Parent Name</label>
                       <input
                         type="text"
-                        name="AcademyCode"
+                        name="ParentName"
                         placeholder="Enter Details"
                         value={formData.AcademyCode}
                         onChange={onchangeHandler}
                         className="w-full mt-1  text-[14px]  outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
                 
                       />
-                      {errors.AcademyCode && (
-                        <span className="text-red-500 block p-[8px]">Enter Academy Code *</span>
+                      {errors.ParentName && (
+                        <span className="text-red-500 block p-[8px]">Enter Parent Name *</span>
                       )}
                     </div>
 
                     {/* Academy Name */}
                     <div className="">
-                      <label for="AcademyName" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] ">Academy Name</label>
+                      <label for="Pnumber" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] ">Parent Phone Number</label>
                       <input
                         type="text"
-                        name="AcademyName"
+                        name="Pnumber"
                         placeholder="Enter Details"
-                        value={formData.AcademyName}
+                        value={formData.Pnumber}
                         onChange={onchangeHandler}
                         className="w-full mt-1  text-[14px]   outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
                     
                       />
-                      {errors.AcademyName && (
-                        <span className=" text-red-500 block p-[8px]"> Enter Academy Name *</span>
+                      {errors.Pnumber && (
+                        <span className=" text-red-500 block p-[8px]"> Enter Phone Number *</span>
                       )}
                     </div>
 
-                    {/* LGA  */}
-                    <div>
-                      <label for="LGA" className="font-medium text-[14px] mt-5 leading-[18px] text-[#3D3D3D] ">LGA</label>
-                      <select
+                  
+                    <div className="">
+                      <label for="PAddress" className="font-medium text-[14px] mt-5 leading-[18px] text-[#3D3D3D] " > Parent Address</label>
+                      <input
                         type="text"
-                        name="LGA"
-                        value={formData.LGA}
+                        name="PAddress"
+                        value={formData.PAddress}
+                        placeholder="Enter Details"
                         onChange={onchangeHandler}
                         className="w-full mt-1  text-[14px]  outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
-                        
-                      >
-                        <option value="0">1</option>
-                        <option value="1">2</option>
-                        <option value="2">3</option>
-                      </select>
-                      {errors.LGA && (
-                        <span className="text-red-500 block p-[8px]"> Enter LGA *</span>
+              
+                      />
+                      {errors.PAddress && (
+                        <span className="text-red-500 block p-[8px]">Enter Parent Address *</span>
                       )}
                     </div>
-                    {/* Senatorial District  */}
+                  
                     <div>
-                      <label for="SenatorialDistrict" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] ">Senatorial District</label>
+                      <label for="LocalGovernment" className="font-medium mt-5 text-[14px] leading-[18px] text-[#3D3D3D] ">Parent Relationship</label>
                       <select
                         type="text"
-                        name="SenatorialDistrict"
-                        value={formData.SenatorialDistrict}
+                        name="Prelationship"
+                        value={formData.Prelationship}
                         onChange={onchangeHandler}
                         className="w-full mt-1  text-[14px]  outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
                  
@@ -385,50 +404,12 @@ const EditUser = ({ isOpen, togglesidebar }) => {
                         <option value="1">2</option>
                         <option value="2">3</option>
                       </select>
-                      {errors.SenatorialDistrict && (
-                        <span className="text-red-500 block p-[8px]">Enter Senatorial District *</span>
+                      {errors.LocalGovernment && (
+                        <span className="text-red-500 block p-[8px]">Parent Relationship *</span>
                       )}
                     </div>
                   </div>
-                  {/* Grade */}
-                  <div className="block lg:grid grid-cols-2 gap-5 mt-5 Border pb-[18px]">
-                  <div className="">
-                    <label for="Grade" className="font-medium  text-[14px] mt-5 block leading-[18px] text-[#3D3D3D] ">Grade</label>
-                    <select
-                      type="text"
-                      name="Grade"
-                      value={formData.Grade}
-                      onChange={onchangeHandler}
-                      className=" w-full mt-1 text-[14px]  outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
-                
-                    >
-                      <option value="0">1</option>
-                      <option value="1">2</option>
-                      <option value="2">3</option>
-                    </select>
-                    {errors.Grade && (
-                      <span className="text-red-500 block p-[8px]">Enter Grade *</span>
-                    )}
-                  </div>
-                  <div className="">
-                      <label for="city" className="font-medium text-[14px] leading-[18px] text-[#3D3D3D] ">
-                       City
-                      </label>
-                      <input
-                        type="text"
-                        name="city"
-                        placeholder="Enter Details"
-                        value={formData.city}
-                        onChange={onchangeHandler}
-                        className="w-full   text-[14px] mt-5 outline-none  border p-2 border-[#D9D9D9] h-[40px] rounded-lg"
-                
-                      />
-                      {errors.city && (
-                        <span className="text-red-500 block p-[8px]"></span>
-                      )}
-                    </div>
-                    </div>
-
+              
                   <div className="block lg:grid grid-cols-2 gap-5 mt-5">
                     <div className="">
                       <label for="Password" className="font-medium text-[14px] leading-[18px] text-[#3D3D3D] ">
@@ -472,27 +453,27 @@ const EditUser = ({ isOpen, togglesidebar }) => {
               <h2 className="text-[18px]  leading-[20px]  pb-[10px] text-[#000000] font-medium">
                 Summary
               </h2>
-              {/* <div className=" rounded-2xl bg-[#FFF9ED] p-4 ">
-                {
-                  formData.map((item) => (
-                    <div key={item.id} className=" flex justify-between mt-2 ">
-                      <div className=" font-light text-[14px] leading-[16px] text-[#5A5B5C]">{item.label}</div>
-                      <div className="text-[16px] leading-[24px] text-[#000000]">{item.value}</div>
-                    </div>
-                  ))
-                }
-              </div> */}
+              <div className="rounded-2xl bg-[#FFF9ED] p-2">
+      {Object.entries(formData).map(([key, value]) => (
+        <div key={key} className="flex  justify-between mt-2">
+          <div className="font-light mt-3 text-[14px] leading-[16px] text-[#5A5B5C]">
+            {key.replace(/_/g, " ")}
+          </div>
+          <div className="text-[16px] leading-[24px] text-[#000000]">{value}</div>
+        </div>
+      ))}
+    </div>
 
               <div className="bg-[FFF9FD] m-auto my-10">
                 <button type="button" className=" h-[32px] rounded-lg text-center  w-[200px]  text-white bg-[#F2994A]" onClick={()=>{
                   submitContactForm()
-                }}> Create User</button>
+                }}> Add User</button>
               </div>
             </div>
           </>
         )
       }
-
+      </div>
     </div>
   );
 };

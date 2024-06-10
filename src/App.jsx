@@ -44,6 +44,7 @@ import EditUser from './pages/user/EditUser';
 import DataAnalytics from './pages/user/DataAnalytics/DataAnalytics';
 import ViewAnalytics from './pages/user/DataAnalytics/ViewAnalytics';
 import ConversionRates from './pages/user/DataAnalytics/CoversionRates';
+import Parent from './pages/user/Parent';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
       <Route path='/' element={<Login />} />
         <Route path='/addusers' element={<AddUser isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/userdetails' element={<UserDetails isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/Parent' element={<Parent isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/EditUser' element={<EditUser isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/forgot-password' element={<ForgetPassword/>} />
         <Route path='/Dashboard' element={<SignInList isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
@@ -89,10 +91,10 @@ function App() {
         <Route path='/Teacher/TeacherDetails' element={<TeacherDetails   isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/Teacher/AddTeacher' element={<AddTeacher   isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/supportmanagement' element={<SupportTicket   isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
-        <Route path='/supportmanagemen/supportTicketDetails' element={<SupportTicketDetails   isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/supportTicketDetails' element={<SupportTicketDetails   isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/ParentReportType' element={<ParentReportType  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/AddParentReportType' element={<AddParentReportType  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
-        <Route path='/ParentReportType/ParentReportTypeDetails' element={<ParentReportTypeDetails  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
+        <Route path='/ParentReportTypeDetails' element={<ParentReportTypeDetails  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/ParentSuggestions' element={<ParentSuggestions  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/ChangePassword' element={<ChangePassword  isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />
         <Route path='/Adminrole' element={<AdminRole isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />} />

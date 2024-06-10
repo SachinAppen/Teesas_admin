@@ -4,14 +4,23 @@ import Custombutton from "../../components/common/Custombutton";
 import edit from "../../assets/images/edit.png";
 import actions from "../../assets/images/actions.png";
 import frame2 from "../../assets/images/Frame2.png";
+import Ynotes from "../../assets/images/Ynotes.png";
+import Gnotes from "../../assets/images/Gnotes.png";
+import Bnotes from "../../assets/images/Bnotes.png";
+import Pnotes from "../../assets/images/Pnotes.png";
+import Snotes from "../../assets/images/Snotes.png";
+import catIcon from "../../assets/images/catIcon.png";
 import EditItemModal from "../../components/Core/Dashboard/Admin/EditItemModal";
 import BarChart from "../../components/Core/Dashboard/Admin/Barcharts";
+import { FaChevronLeft } from "react-icons/fa";
+import Modal from "../../components/common/Modal";
 const SignInList = ({ isOpen }) => {
   const [items, setItems] = useState(null);
   const [todo, setTodo] = useState("");
   const [open, setOpen] = useState(false);
   const [list, setList] = useState([]);
   const [showAllData, setShowAllData] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const data = [
     {
@@ -79,6 +88,9 @@ const SignInList = ({ isOpen }) => {
     return () => {};
   }, []);
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   const toggleModal=()=>{
     setOpen(!open);
@@ -104,25 +116,36 @@ const SignInList = ({ isOpen }) => {
   }
   return (
     <div
-      className={` py-[8rem] lg:px-[10rem] px-[10px] ${isOpen ? "ml-[240px]" : ""}`}
+      className={` py-[7rem] lg:px-[5rem] px-[10px] ${isOpen ? "xl:ml-[260px]" : ""}`}
+
     >
-      <h2 className=" font-bold text-[22px] lg:pl-0 pl-[8px] leading-[24px] text-[#49454F]">
+    <div className='flex justify-start items-center lg:gap-3'>
+          <FaChevronLeft />
+          <div>
+           <div className=' font-normal text-[14px] lg:text-[16px] leading-[20px] text-[#B6B6B6]'>Home / Dashboard / <span className='text-black font-medium'>Sign In Lists</span></div>
+          </div>
+    </div>
+    
+      <h2 className=" pt-[20px] font-bold text-[22px] lg:pl-[16px] xl:pl-0 pl-[8px] leading-[24px] text-[#49454F]">
         Dashboard
       </h2>
       <div>
-        <div className=" rounded-xl p-[16px] bg-[#FFFFFF] dash mt-5">
+        <div className=" rounded-xl p-[16px] w-full bg-[#FFFFFF] dash mt-5">
           <div>
             <h3 className="font-bold text-[22px] text-[#2C2E32] leading-[28px] ">
-              Welcome, <span className="text-[#4AC384]">Allyson</span>{" "}
+              Welcome, <span className="text-[#4AC384]">Allyson</span>
             </h3>
+            <p className=" font-light text-[12px] leading-[16px] py-[10px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru</p>
           </div>
-          <div className="  grid grid-cols-1 mt-4  md:grid  md:grid-cols-2  lg:grid lg:grid-cols-4 gap-7">
+          <div className="  grid grid-cols-1 mt-4  md:grid  md:grid-cols-2 md:gap-5 xl:grid-cols-4  lg:grid lg:grid-cols-3 lg:gap-7">
             <div>
               <UserCard
                 label="Total Active User"
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="5,000"
+                img2={Ynotes}
+                width="w-[298px]"
               />
             </div>
             <div>
@@ -131,6 +154,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="20"
+                img2={Gnotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -139,6 +164,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="12"
+                img2={Bnotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -147,6 +174,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="244"
+                img2={Snotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -155,6 +184,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="244"
+                img2={Gnotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -163,12 +194,14 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="12"
+                img2={Pnotes}
+                  width="w-[298px]"
               />
             </div>
           </div>
         </div>
 
-        <div className=" rounded-xl p-[16px] bg-[#FFFFFF] dash mt-5">
+        <div className=" rounded-xl p-[16px] w-full bg-[#FFFFFF] dash mt-5">
           <div className=" flex justify-between Border  pb-[8px]">
             <div>
               <h3 className=" font-medium text-[18px] text-[#2C2E32] leading-[25px] ">
@@ -182,16 +215,19 @@ const SignInList = ({ isOpen }) => {
                 backgroundcolor="bg-[#F2F2F2]"
                 textcolor="text-[#000000]"
                 imagePosition="right"
-              />{" "}
+                onClick={() => setIsModalOpen(true)}
+              />
             </div>
           </div>
-          <div className=" mt-4 lg:grid  md:grid md:grid-cols-2 lg:grid-cols-4 gap-7">
+          <div className=" mt-4 lg:grid  md:grid md:grid-cols-2 md:gap-5 xl:grid-cols-4 lg:grid-cols-3 lg:gap-7">
             <div>
               <UserCard
                 label="Total number of tickets"
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="5,000"
+                img2={Ynotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -200,6 +236,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="20"
+                img2={Gnotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -208,6 +246,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="12"
+                img2={Bnotes}
+                  width="w-[298px]"
               />
             </div>
             <div>
@@ -216,6 +256,8 @@ const SignInList = ({ isOpen }) => {
                 height="h-[105px]"
                 backgroundcolor="bg-[#F2F2F2]"
                 value="244 "
+                img2={Pnotes}
+                width="w-[298px]"
               />
             </div>
           </div>
@@ -237,6 +279,7 @@ const SignInList = ({ isOpen }) => {
                 backgroundcolor="bg-[#F2F2F2]"
                 textcolor="text-[#000000]"
                 imagePosition="right"
+                onClick={() => setIsModalOpen(true)}
               />
             </div>
           </div>
@@ -246,7 +289,7 @@ const SignInList = ({ isOpen }) => {
         </div>
         <div>
           <div className="rounded-xl w-full p-[12px] bg-[#FFFFFF] dash mt-5">
-            <h3 className="font-meduim text-[18px] text-[#2C2E32] leading-[25px] Border pb-[15px] ">
+            <h3 className=" font-medium text-[18px] text-[#2C2E32] leading-[25px] Border pb-[15px] ">
               SignIn
             </h3>
             <div className=" block signIn lg:grid grid-cols-2  gap-5 mt-5">
@@ -255,16 +298,21 @@ const SignInList = ({ isOpen }) => {
                   key={key}
                   className="rounded-lg border border-[#ECEDEE] box-shadow  "
                 >
-                  <div className="flex items-center gap-10 p-[14px]">
-                    <div className="font-bold text-[14px] leading-[22px] text-[#2C2E32]">
+                  <div className="flex items-center gaps  gap-[18px] lg:gap-[17px] xxl:gap-[21px] ">
+                    <div className="border-dashed xxl:pl-[21px] text-[#2C2E32] status p-3 pr-[16px] xxl:pr-[77px]  xl:pr-[33px] border-r border-[#A2A4A9]" >
+                    <div>
+                    <img src={catIcon} />
+                    </div>
+                    <div className="font-bold text-[14px]  leading-[22px] text-[#2C2E32]">
                       {item.name}
+                      </div>
                     </div>
                     <div className="">
                       <div className="flex items-center gap-4">
                         <div className=" font-medium text-[12px] leading-[15px] text-[#2C2E32]">
                           Status
                         </div>
-                        <div className="bg-[#DBF3E6] rounded-2xl px-[5px] py-[2px]   font-normal text-[9px] leading-[8px] text-[#6ECF9D] ">
+                        <div className="bg-[#DBF3E6] uppercase rounded-[22px] px-[8px] py-[5px]  lg:w-[48px] lg:h-[16px]  font-normal text-[9px] leading-[8px] text-[#6ECF9D] ">
                           {item.status}
                         </div>
                       </div>
@@ -284,16 +332,18 @@ const SignInList = ({ isOpen }) => {
                 key={key}
                 className="rounded-lg border border-[#ECEDEE] box-shadow  "
               >
-                <div className="flex items-center gap-10 p-[14px]">
-                  <div className="font-bold text-[14px] leading-[22px] text-[#2C2E32]">
+                <div className="flex items-center gap-[18px] gaps lg:gap-[17px] xxl:gap-[21px] ">
+
+                  <div className="font-bold p-3 text-[14px] pr-[16px] status xl:pr-[33px] xxl:pr-[77px] leading-[22px] border-dashed text-[#2C2E32] border-r border-[#A2A4A9]  xxl:pl-[21px] ">
+                  <img src={catIcon}/>
                     {item.name}
                   </div>
                   <div className="">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 ">
                       <div className=" font-medium text-[12px] leading-[15px] text-[#2C2E32]">
                         Status
                       </div>
-                      <div className="bg-[#DBF3E6] rounded-2xl px-[5px] py-[2px]   font-normal text-[9px] leading-[8px] text-[#6ECF9D] ">
+                      <div className="bg-[#DBF3E6] uppercase rounded-[22px] px-[8px] py-[5px]  lg:w-[48px] lg:h-[16px]  font-normal text-[9px] leading-[8px] text-[#6ECF9D]  ">
                         {item.status}
                       </div>
                     </div>
@@ -387,6 +437,15 @@ const SignInList = ({ isOpen }) => {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <Modal
+          closeModal={handleModalClose}
+          label="Filter"
+          value1="Filter By Course"
+          value2="Filter By Status"
+          value3="Filter By Month"
+        />
+      )}
     </div>
   );
 };

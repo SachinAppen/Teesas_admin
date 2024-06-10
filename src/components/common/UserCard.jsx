@@ -2,7 +2,7 @@ import React from 'react'
 import Group1000001600 from "../../assets/images/Group1000001600.png";
 const UserCard = ({label,backgroundcolor,width,height,value,value2,img,imglogo,imgbg,img2 }) => {
   return (
-    <div className={` py-[15px] lg:mt-0 mt-[10px] px-[15px] rounded-xl flex gap-[8px] flex-col ${width} ${height} ${backgroundcolor}`}>  
+    <div className={` py-[15px] lg:mt-0 mt-[10px] px-[15px] rounded-xl flex gap-[8px] flex-col  w-full lg:${width} ${height} ${backgroundcolor}`}>  
     <div className='w-[32px] h-[32px] rounded-lg'>
     <div className=' relative'>
      <img src={imglogo} className='absolute left-[7px] top-[8px]' />
@@ -13,10 +13,10 @@ const UserCard = ({label,backgroundcolor,width,height,value,value2,img,imglogo,i
      </div>
     </div>
     <div>
-     <p className='text-[12px] leading-[12px] text-[#001D4A]'>{label}</p>
+     <p className='text-[12px] leading-[12px] font-normal  text-[#001D4A]'>{label}</p>
     </div>
     <div >
-     <p className=' font-meduim text-[20px] leading-[20px]'>{value}</p>
+     <p className='text-[20px] leading-[20px] font-medium'>{value}</p>
     </div>
     <div className='flex items-center gap-[7px] '>
      <img src={img} className='w-12px h-[12px] text-[#06AA8D]'/>

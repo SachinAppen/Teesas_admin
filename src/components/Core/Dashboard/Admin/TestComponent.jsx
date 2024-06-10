@@ -162,7 +162,7 @@ const TestComponent = () => {
           <div className="Border lg:pl-0 pl-[6px]">
             <Headcomponent value={"Subjects"} />
             <div className=" flex  justify-end  my-[10px]">
-              <button className=" text-[12px] lg:text-[14px] leading-[20px] text-center font-bold  w-[84px] h-[31px] lg:-[122px] lg:h-[40px] rounded-lg lg:py-[7px] lg:px-[12px]  mr-[5px] lg:mr-0 bg-[#27AE60] text-white">
+              <button className=" text-[12px] lg:text-[14px] leading-[20px] text-center font-bold  w-[121px] h-[31px] lg:-[122px] lg:h-[40px] rounded-lg lg:py-[7px] lg:px-[12px]  mr-[5px] lg:mr-0 bg-[#27AE60] text-white">
                 Add Subject
               </button>
             </div>
